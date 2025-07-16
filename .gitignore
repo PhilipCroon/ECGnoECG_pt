@@ -1,0 +1,39 @@
+models/
+
+# Virtual environments
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Model & Large Files
+*.h5
+*.ckpt
+logs/
+*.tflite
+*.onnx
+
+# Datasets & Cache
+data/
+*.csv
+*.tsv
+*.json
+*.zip
+*.tar
+*.tar.gz
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.jpeg
+*.txt
+
+# IDE / Editor Files
+.vscode/
+.idea/
+.DS_Store
