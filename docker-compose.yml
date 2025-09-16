@@ -1,0 +1,30 @@
+#
+# Remember to set your API_KEY in a `.env` file at the project root.
+# Make sure `.env` is included in your `.gitignore` to avoid committing secrets!
+
+version: "3.9"
+
+services:
+  api:
+    build: .
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - API_KEY=${API_KEY}
+    ports:
+      - "8000:8000"
+
+  worker:
+    build: .
+    command: celery -A app.queue worker --loglevel=info
+    depends_on:
+      - redis
+    environment:
+      - API_KEY=${API_KEY}
+
+  redis:
+    image: redis:6-alpine
+    ports:
+      - "6379:6379"

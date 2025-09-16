@@ -17,6 +17,7 @@ __pycache__/
 logs/
 *.tflite
 *.onnx
+models/
 
 # Datasets & Cache
 data/
@@ -37,3 +38,6 @@ data/
 .vscode/
 .idea/
 .DS_Store
+
+# secrets
+.env
